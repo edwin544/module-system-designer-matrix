@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Module Boundary Designer Matrix</title>
+<link rel="stylesheet" href="app.css">
+</head>
+<body>
+
+<header>
+  <h1>Module Boundary Designer Matrix</h1>
+  <p id="provenance" class="provenance">loading the corpus…</p>
+</header>
+
+<nav id="modes" class="modes" role="tablist">
+  <button data-mode="B" class="on" role="tab">Explore a combination</button>
+  <button data-mode="C" role="tab">Look up a studied language</button>
+  <button data-mode="A" role="tab">Walkthrough with Unison</button>
+</nav>
+<p id="modehelp" class="modehelp"></p>
+
+<main>
+  <section class="panel" id="inputs">
+
+    <div id="langpick" class="block hidden">
+      <h2>Language</h2>
+      <select id="lang"></select>
+      <p id="langnote" class="note"></p>
+    </div>
+
+    <!-- Shown only when more than one walkthrough language exists, so a single
+         row needs no picker and the control does not appear until it earns its place. -->
+    <div id="walkpick" class="block hidden">
+      <h2>Walkthrough language</h2>
+      <select id="walklang"></select>
+      <p id="walknote" class="note"></p>
+    </div>
+
+    <div class="block">
+      <h2>What the boundary must do
+        <button type="button" class="link" id="clearprops">clear</button>
+      </h2>
+      <p class="hint">Leave a property unset if you are not asking for it. <em>present</em>
+        accepts a full or partial verdict.</p>
+      <div id="props"></div>
+    </div>
+
+    <div class="block">
+      <h2>What your code ships
+        <button type="button" class="link" id="alluniversal">the six universal</button>
+        <button type="button" class="link" id="clearroutes">clear</button>
+      </h2>
+      <p class="hint">Tick what your build actually permits, and the breakage report below
+        narrows to it — and says what the routes you ruled out would still have reached.
+        With nothing ticked you see every route the study attempted.</p>
+      <div id="routes"></div>
+    </div>
+
+  </section>
+
+  <section class="panel" id="output">
+    <div id="statements"></div>
+  </section>
+</main>
+
+<footer>
+  <p id="footnote"></p>
+</footer>
+
+<!-- The data, as scripts rather than fetches, so the page works from file://.
+     Generated from the canonical JSON by analysis/build_file_bundle.py. -->
+<script src="data/evaluation.js"></script>
+<script src="data/patterns.js"></script>
+<script src="data/walkthrough.js"></script>
+
+<script src="query.js"></script>
+<script src="provenance.js"></script>
+<script src="templates.js"></script>
+<script src="rules.js"></script>
+<script src="app.js"></script>
+</body>
+</html>

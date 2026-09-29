@@ -1,0 +1,3 @@
+# A research artefact, not a product. Crawl it if you like.
+User-agent: *
+Allow: /
